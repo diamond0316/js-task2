@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <script src="js/bootstrap.js"></script>
+    <script src="js/main.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="container container-fluid">
+    <div class="row wrap">
+        <header>
+            <div class="col-xs-2 back-icon"></div>
+            <div class="col-xs-4 col-xs-offset-3"><p>参数设置</p></div>
+            <div class="col-xs-2 pull-right question "></div>
+            <div class="clearfix"></div>
+        </header>
+        <div class="content">
+            <div class="set">玩家人数：<input id="peoples" type="text" name="peoples" min="6" max="18" step="1" value="6"/>（6-18人）</div>
+            <div id="set-text"><textarea id="text1"  name="textarea1"  >设置游戏人数点击发牌即可开始游戏</textarea> </div>
+            <button id="star" onclick="star()" type="submit" >发牌</button>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+</body>
+</html>
