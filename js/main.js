@@ -1,16 +1,22 @@
 function star(){
     pelnum = document.getElementById("peoples").value;
     var showContent = document.getElementById("text1");
+    var $showContent = $(showContent);
     showContent.value=null;
     function randomsort(a,b) {
         return Math.random()>.5 ? -1 : 1;}
-    function printPlayerId(){
-        var playerId;
+    function printPlayerId() {
+            var playerId;
 
-        for(k=0;k<=pelnum-1;k++){
-            if(playerIds[k]==0){playerId="杀手"}
-            else {playerId="平民"}
-            showContent.value=showContent.value+(k+1)+"号玩家身份是"+playerId+"\r\n";}
+            for (k = 0; k <= pelnum - 1; k++) {
+                if (playerIds[k] == 0) {
+                    playerId = "杀手"
+                }
+                else {
+                    playerId = "平民"
+                }
+                showContent.value = showContent.value + playerId + "\r\n";
+            }
     }
     switch (true ) {
         case pelnum < 5:
@@ -45,5 +51,8 @@ function star(){
             printPlayerId();
             break;
     }
+   localStorage.setItem('key',JSON.stringify(playerIds));
+   var url="http://localhost:63342/js-task2.git/trunk/test2.html";
+   window.location.href=encodeURI(url+"?userName="+showContent.value);
 
 }

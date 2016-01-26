@@ -3,13 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="js/jquery-2.2.0.js" type="text/javascript"></script>
 </head>
 <body>
+<div class="comment">
+    <h6>张三：</h6>
+    <p class="para">沙发</p>
+</div>
+<div class="comment">
+    <h6>李四：</h6>
+    <p class="para">板凳</p>
+</div>
+<div class="comment">
+    <h6>王五：</h6>
+    <p class="para">地板</p>
+</div>
+<a class="demo-link"></a>
 <script>
-    var playerIdentity=["killer","killer"];
-    for(i=0;i<8;i++)
-    {playerIdentity.push("civilian");}
-    alert(playerIdentity);
+    var url=document.URL;
+    var root=location.protocol+"//"+location.host;
+    var param=document.URL.split("#")[1];
+    $("a.demo-link").click(function(){var hash=$(this).attr("href"); location.hash =hash;});
+    $.extend({ getUrlVars: function()
+    {  var vars = [], hash;  var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for(var i = 0; i < hashes.length; i++)
+        {   hash = hashes[i].split('=');   vars.push(hash[0]);
+            vars[hash[0]] = hash[1];  }  return vars; },
+        getUrlVar: function(name){  return $.getUrlVars()[name]; }});
+    alert($.getUrlVar("a"));
 </script>
 </body>
 </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="js/jquery-2.2.0.js" type="text/javascript"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <script src="js/bootstrap.js"></script>
+    <script src="js/main.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        body{
+            font-size:62.5%;
+
+        }
+
+        #show{
+            font-size:1.6em;
+        }
+        @media screen and (max-width: 767px) {
+        #show{
+            font-size:2.8em;
+        }
+        }
+
+    </style>
+</head>
+<body>
+<div class="container container-fluid">
+    <div class="row wrap bkcolor">
+        <header>
+            <div class="col-xs-12 text-center"><p>查看身份</p></div>
+            <div class="clearfix"></div>
+        </header>
+        <div class="content bkcolor box-padding">
+            <div id="Bkshow" class="cardbk">
+                <div class="numcircle"></div>
+            </div>
+            <div id="Ftshow" class="cardft">
+                <div class="numcircle"></div>
+            </div>
+            <div class="btn-position button" style="top:700px;"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+</div>
+<script>
+//    var urlinfo= window.location.href;
+//    var userName=urlinfo.split("?")[1].split("=")[1];
+//    var plerId=[decodeURI(userName)];
+    var read=JSON.parse(localStorage.getItem("key"));
+    console.log(read,read.length);
+
+
+    $(function(){
+        var i=0;
+        var k=0;
+
+
+        $("<p/>").appendTo(".button").html("查询"+1+"号玩家身份");
+        $(".button").bind("click",function() {
+            i++;
+            $(".button p").remove();
+            if(i/2==read.length){
+                alert("stop")
+            }
+            else if(i%2!=1){
+                $("<p/>").appendTo(".button").html("查询"+(i/2+1)+"号玩家身份");
+            }
+            else {
+                $("<p/>").appendTo(".numcircle").html(k);//加载动态文本 玩家序号
+                $("<p/>").appendTo(".button").html("隐藏并传递给" + (i + 3)/2 + "号玩家");
+                $(".cardft p").remove();
+                $("<p/>").appendTo(".cardft").html(read[k]);//玩家身份
+                k++;
+                $(".numcircle p").remove();
+                $("<p/>").appendTo(".numcircle").html(k);//加载动态文本 玩家序号
+            }
+        });
+    })
+</script>
+</body>
+
+</html>
